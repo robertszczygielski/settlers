@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/enemies")
 class EnemiesController {
 
-    @PostMapping()
+    @PostMapping("/create")
     fun createEnemies() {
 
     }

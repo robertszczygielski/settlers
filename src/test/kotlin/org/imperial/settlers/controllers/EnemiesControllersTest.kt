@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.web.client.TestRestTemplate
 import org.springframework.http.HttpStatus
 import org.springframework.test.context.junit4.SpringRunner
+import java.util.*
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -22,7 +23,8 @@ class EnemiesControllersTest {
 
     @Test
     fun shouldCheckIfUrlForCreatingEnemyIsCorrect() {
-        val result = testRestTemplate.getForEntity(urlEnemies + urlCreate, String::class.java)
+        val result = testRestTemplate.postForEntity(urlEnemies + urlCreate, null, String::class.java,
+                emptyList<Objects>())
 
         assertNotNull(result)
         assertEquals(HttpStatus.OK, result.statusCode)
