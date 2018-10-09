@@ -23,8 +23,7 @@ class EnemiesControllersTest {
 
     @Test
     fun shouldCheckIfUrlForCreatingEnemyIsCorrect() {
-        val result = testRestTemplate.postForEntity(urlEnemies + urlCreate, null, String::class.java,
-                emptyList<Objects>())
+        val result = testRestTemplate.postForEntity(urlEnemies + urlCreate, emptyArray<String>(), String::class.java)
 
         assertNotNull(result)
         assertEquals(HttpStatus.OK, result.statusCode)
