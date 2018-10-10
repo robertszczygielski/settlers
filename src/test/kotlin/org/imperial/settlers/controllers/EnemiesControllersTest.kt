@@ -1,6 +1,7 @@
 package org.imperial.settlers.controllers
 
 import junit.framework.Assert.assertNotNull
+import org.imperial.settlers.dtos.Enemy
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,9 +24,11 @@ class EnemiesControllersTest {
 
     @Test
     fun shouldCheckIfUrlForCreatingEnemyIsCorrect() {
-        val result = testRestTemplate.postForEntity(urlEnemies + urlCreate, emptyArray<String>(), String::class.java)
+        val result = testRestTemplate.postForEntity(urlEnemies + urlCreate, listOf(Enemy("A", 1, "B")), String::class
+                .java)
 
         assertNotNull(result)
         assertEquals(HttpStatus.OK, result.statusCode)
     }
+
 }
