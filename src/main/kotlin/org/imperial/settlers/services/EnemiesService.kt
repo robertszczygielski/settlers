@@ -11,7 +11,6 @@ class EnemiesService(val enemyRepository: EnemiesRepository) {
     fun saveEnemies(enemies: List<Enemy>) {
         for (enemy in enemies) {
             val e = EnemyEntity(enemy.name, enemy.value, enemy.resource)
-            println(e)
             enemyRepository.save(e)
         }
     }
