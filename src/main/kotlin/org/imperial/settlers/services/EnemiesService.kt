@@ -14,4 +14,11 @@ class EnemiesService(val enemyRepository: EnemiesRepository) {
             enemyRepository.save(e)
         }
     }
+
+    fun getEnemies(): List<Enemy> {
+        val enemiesEntity = enemyRepository.findAll()
+
+        return enemiesEntity.map { enemyEntity -> Enemy(enemyEntity.name, enemyEntity.value, enemyEntity
+                .resource) }
+    }
 }

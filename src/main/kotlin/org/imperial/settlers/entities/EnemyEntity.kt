@@ -19,5 +19,6 @@ data class EnemyEntity(
         @Column(name = "resource")
         var resource: String) {
 
+        constructor(): this(0, "", 0, "")
         constructor(name: String, value: Int, resource: String): this(0, name, value, resource)
 }
